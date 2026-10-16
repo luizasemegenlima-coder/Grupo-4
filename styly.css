@@ -1,0 +1,353 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --fundo-pagina: #0f172a;
+  --texto-padrao: #334155;
+  
+  /* Cores Temáticas das Seções */
+  --tema-1-cor: #f97316;    /* Laranja - Iluminação */
+  --tema-1-fundo: #fff7ed;
+  
+  --tema-2-cor: #0284c7;    /* Azul - Refração/Física */
+  --tema-2-fundo: #f0f9ff;
+  
+  --tema-3-cor: #10b981;    /* Verde - Sensores/Segurança */
+  --tema-3-fundo: #ecfdf5;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--fundo-pagina);
+  font-family: var(--fonte-principal);
+  color: #1e293b;
+  line-height: 1.7;
+}
+
+/* BARRA DE ACESSIBILIDADE FIXA */
+.barra-acessibilidade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #1e293b;
+  border-bottom: 2px solid #334155;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  z-index: 1000;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.botao-controle {
+  background: #334155;
+  color: #ffffff;
+  border: 1px solid #475569;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.botao-controle:hover {
+  background: #f8fafc;
+  color: #0f172a;
+  transform: translateY(-2px);
+}
+
+.botao-leitura {
+  background: #059669;
+  border: none;
+}
+
+.botao-leitura:hover {
+  background: #10b981;
+  color: #ffffff;
+}
+
+/* CABEÇALHO E BANNER */
+.cabecalho {
+  text-align: center;
+  margin-top: 100px;
+  padding: 20px;
+}
+
+.banner h1 {
+  color: #f8fafc;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.banner .subtitulo {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+/* MAIN CONTAINER CENTRALIZADO */
+main {
+  flex: 1;
+  padding: 20px;
+  max-width: 850px;
+  width: 100%;
+  margin: 0 auto 40px auto;
+}
+
+/* ESTILIZAÇÃO DOS CARDS POR TEMA */
+.card {
+  background: #ffffff;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Tema 1: Iluminação */
+.card.tema-iluminacao {
+  border-top: 8px solid var(--tema-1-cor);
+  background-color: var(--tema-1-fundo);
+}
+.card.tema-iluminacao h2, 
+.card.tema-iluminacao .badge-tag {
+  color: var(--tema-1-cor);
+}
+
+/* Tema 2: Refração */
+.card.tema-refracao {
+  border-top: 8px solid var(--tema-2-cor);
+  background-color: var(--tema-2-fundo);
+}
+.card.tema-refracao h2, 
+.card.tema-refracao .badge-tag {
+  color: var(--tema-2-cor);
+}
+
+/* Tema 3: Sensores */
+.card.tema-sensores {
+  border-top: 8px solid var(--tema-3-cor);
+  background-color: var(--tema-3-fundo);
+}
+.card.tema-sensores h2, 
+.card.tema-sensores .badge-tag {
+  color: var(--tema-3-cor);
+}
+
+/* BADGES DE IDENTIFICAÇÃO */
+.badge-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.card h2 {
+  font-size: 1.7rem;
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  margin-top: 24px;
+  margin-bottom: 10px;
+  color: #1e293b;
+  font-size: 1.25rem;
+}
+
+.card p {
+  margin-bottom: 14px;
+  color: #475569;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* LISTAS DENTRO DOS CARDS */
+.lista-destaque, .lista-legenda {
+  list-style: none;
+  margin: 15px 0;
+  padding: 0;
+  text-align: left;
+}
+
+.lista-destaque li {
+  background: #ffffff;
+  padding: 10px 16px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid currentColor;
+}
+
+.lista-legenda li {
+  display: inline-block;
+  margin: 4px 8px;
+  background: #ffffff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+/* FÓRMULAS */
+.destaque-formula {
+  background: #1e293b;
+  color: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.destaque-formula h4 {
+  color: #94a3b8;
+  margin-bottom: 6px;
+}
+
+.formula code {
+  font-size: 1.3rem;
+  color: #38bdf8;
+  font-weight: bold;
+}
+
+/* CONTAINER DE IMAGENS */
+.imagem-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.imagem-container img {
+  max-width: 100%;
+  max-height: 380px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.imagem-container img:hover {
+  transform: scale(1.02);
+}
+
+.referencias {
+  margin-top: 25px;
+  font-size: 0.85rem;
+  color: #64748b;
+  border-top: 1px solid #cbd5e1;
+  padding-top: 15px;
+}
+
+.referencias a {
+  color: var(--tema-2-cor);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.referencias a:hover {
+  text-decoration: underline;
+}
+
+/* BOTÃO DE AJUDA CENTRALIZADO */
+.container-acoes {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.botao-ajuda {
+  background-color: #38bdf8;
+  color: #0f172a;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+.botao-ajuda:hover {
+  background-color: #7dd3fc;
+  transform: scale(1.05);
+}
+
+/* MODAL DE AJUDA */
+.modal-fundo {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+.modal-conteudo {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  width: 480px;
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.modal-conteudo h3 {
+  margin-bottom: 12px;
+  color: #0f172a;
+}
+
+.modal-conteudo p {
+  color: #475569;
+  margin-bottom: 20px;
+}
+
+.botao-fechar {
+  background-color: #ef4444;
+  color: white;
+  box-shadow: none;
+}
+
+.botao-fechar:hover {
+  background-color: #dc2626;
+}
+
+@media (max-width: 600px) {
+  .banner h1 {
+    font-size: 1.7rem;
+  }
+  
+  main {
+    padding: 10px;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+}
